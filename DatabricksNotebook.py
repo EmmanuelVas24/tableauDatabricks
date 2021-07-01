@@ -29,6 +29,8 @@ for line in lines:
 # Take a random key from the dictionary and print its value
 print(reviews)
 
+#small change here
+
 # COMMAND ----------
 
 

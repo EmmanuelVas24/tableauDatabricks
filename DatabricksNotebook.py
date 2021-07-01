@@ -1,0 +1,34 @@
+# Databricks notebook source
+import urllib
+import random
+
+# Load the data from remote location (URL)
+file = urllib.request.urlopen("https://gist.githubusercontent.com/twielfaert/a0972bf366d9aaf6cb1206c16bf93731/raw/dde46ad1fa41f442971726f34ad03aaac85f5414/Donna-Tartt-The-Goldfinch.csv")
+f = file.read()
+
+# Transform the bitstream into strings
+text = f.decode(encoding='utf-8',errors='ignore')
+
+# Split this single string at the end of lines
+lines = text.split("\n")
+
+# Initalising the dictionary
+reviews = {}
+
+# Filling the dictionary
+for line in lines:
+  l = line.strip().split("\t")
+  
+  score = l[0] 
+  id = l[1]
+  title = l[2]
+  review = l[3]
+  
+  reviews[id] = {"score" : score, "title" : title, "review" : review}
+
+# Take a random key from the dictionary and print its value
+print(reviews)
+
+# COMMAND ----------
+
+
